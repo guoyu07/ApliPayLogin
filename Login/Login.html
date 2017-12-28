@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<style type="text/css">
+		body,ul,p{
+			margin: 0;
+			padding: 0;
+			font-family: "宋体";
+		}
+		li{
+			list-style: none;
+			display: inline-block;
+		}
+		a{			
+			text-decoration: none;
+		}
+		.container{
+			position: relative;
+		}
+		.loginHead{
+			width: 100%;
+			height: 28px;
+			background: #1E1B29;
+		}
+		.loginHead ul{
+			height: 26px !important;
+			line-height: 26px;
+		}
+		.navTitle{
+			width: 990px;
+			height: 27px;
+			margin: 0 auto;
+
+		}
+		.titleLeft {
+			float: left;
+			height: 27px;
+		}
+		.titleRight{
+			height: 27px;
+			line-height: 27px;
+			float: right;
+		}
+		.titleLeft li, .titleRight li{
+			height: 26px;
+			line-height: 26px;
+			padding: 0 7px;
+		}
+		.titleLeft a,.titleRight a{
+			font-size: 12px;
+			font-family: "宋体";
+			font-weight: normal;
+			color:  #0AE;
+		}
+		.titleRight a{
+			height: 14px;
+			line-height: 16px;
+		}
+		.loginBackground{
+			position: absolute;
+			z-index: -1;
+			width: 1349px;
+    		height: 658px;
+			top: 0;
+			left:0;
+		}
+		.loginBackground img{
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+		}
+		.loginContent{
+			position: relative;
+			width: 990px;
+			height:auto;
+			min-height: 450px;
+			margin:0 auto;
+			padding: 50px 0;
+		}
+		h1.logo{
+			width: 100%;
+			height: 43px;
+			line-height: 43px;
+			margin: 0;
+		}
+		a.icon{
+			display: inline-block;
+			width: 114px;
+			height: auto;
+		}
+		.loginInput{
+			float: right;
+		    margin: 27px 95px;
+		    width: 286px;
+		    height: auto;
+		    position: relative;
+		}
+		.loginType{
+			height: 43px;
+			border: 1px solid transparent;
+    		background: rgba(0,0,0,.5);
+		}
+		.loginType li{
+			float: left;
+		    width: 50%;
+		    color: #fff;
+		    text-align: center;
+		    border-bottom: 2px #fff solid;
+		    font-size: 16px;
+		    padding: 15px 0 4px;
+		    cursor: pointer;
+		}
+		.loginTypeContent{
+			width: 286px;
+			height:auto;
+
+		}
+		#code{
+			width: 286px;
+			height: auto;
+			border: 1px solid transparent;
+    		background: rgba(0,0,0,.5);
+		}
+		#showCode{
+			position: relative;
+		    margin: 0 auto;
+		    padding: 15px 0 0;
+		    text-align: center;
+		    width: 190px;
+		    height: 170px;
+		    zoom: 1;
+		}
+		#numberLogin{
+		    width: 284px;
+		    height: auto;
+		    border: 1px solid transparent;
+		    background: rgba(0,0,0,.5);
+		}
+		#showCode>img{
+			padding: 5px;
+			background: #fff;
+		}
+		#codeFooter p{
+			text-align: center;
+			color: #fff;
+			font-size: 14px;
+			padding: 5px 0;
+		}
+		#codeFooter p a{
+			color: #fff;
+			font-size: 12px;
+		}
+		#loginForm{
+			width: 220px;
+			height: auto;
+			margin:0 auto;
+		}
+		#loginForm label{
+			display: inline-block;
+			width: 100%;
+			height: 40px;
+			margin: 10px 0;
+		}
+		#loginForm input{
+			width: 180px;
+			height: 40px;
+			text-indent: 10px;
+			margin:0;
+			padding:0;
+			border:none;
+			outline: none;
+		}
+		.user-icon,.password-icon{
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			float: left;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-color: #ccc;
+			padding: 0;
+			margin:0;
+		}
+		.user-icon:hover,.password-icon:hover{
+			background-color: #868383;
+		}
+		.user-icon{
+			background-image: url('./user.png');
+		}
+		.password-icon{
+			background-image: url('./password.png');
+		}
+		#submit{
+			width: 220px !important;
+			height: 40px;
+			color: #fff;
+			cursor: pointer;
+			background-color: #0AE;
+			border-radius: 5px;
+			margin-top: 15px !important;
+		}
+		.link{
+			width: 220px;
+			height: 30px;
+			margin:10px auto 0 auto;
+		}
+		.link span a{
+			font-size: 14px;
+			padding: 15px 0;
+		}
+		.found{
+			float: left;
+		}
+		.register{
+			float: right;
+		}
+		.register a,.register a{
+			font-size: 12px;
+		}
+		.found a{
+			color: #fff;			
+		}
+		.register a{
+			color: #0AE;
+		}
+		/*//tab组件的样式*/
+		.show{
+			display: block;
+		}
+		.hide{
+			display: none;
+		}
+		.active{
+			color: #0AE !important;
+			border-bottom: 2px solid #0AE !important;
+		}
+		.loginFooter{
+			width:100%;
+			height: 80px;
+		}
+		#footText{
+			width: 990px;
+			height: 60px;
+			margin:0 auto;
+		}
+		#footText p{
+			line-height: 24px;
+		}
+		#footText p,#footText p a{
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var ul=document.getElementsByClassName('loginType')[0];
+			var lis=ul.getElementsByTagName('li');
+			var divs=document.getElementsByClassName('type');
+			for(var i=0;i<lis.length;i++){
+				lis[i].index=i;	
+				lis[i].onclick=function(){
+					for(var j=0;j<lis.length;j++){
+						lis[j].className='';
+					}
+					this.className='active';
+					for(var k=0;k<divs.length;k++){
+						divs[k].style.display='none';
+					}
+					divs[this.index].style.display='block';
+				}
+			}
+		}
+			
+
+		
+
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="loginHead">
+			<div class="navTitle">
+				<div class="titleLeft">
+					<ul>
+						<li>
+							<a href="###">支付宝APP</a>
+						</li>
+					</ul>
+				</div>
+				<div class="titleRight">
+					<ul>
+						<li><a href="###">支付宝首页</a></li>
+						<li><a href="###">服务大厅</a></li>
+						<li><a href="###">提建议</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="loginContent">
+			<h1 class="logo">
+				<a href="###" class="icon" title="UWINs首页">
+					<img src="https://t.alipayobjects.com/images/T1HHFgXXVeXXXXXXXX.png"/>
+				</a>
+			</h1>
+			<div class="loginInput">
+				<ul class="loginType">
+					<li id="clickCode"  class="active">扫码登录</li>
+					<li id="clickNumber" class="">账密登录</li>
+				</ul>
+				<div id="loginTypeContent">
+					<div id="code" class="type" >
+						<div id="showCode" >
+							<img src="./code.png"/>
+						</div>
+						<div id="codeFooter">
+							<p>请用手机支付宝扫码</p>
+							<p>
+								<a href="###">使用帮助</a>
+								<span>|</span>
+								<a href="###">下载手机支付宝</a>
+							</p>
+						</div>
+					</div>
+					<div id="numberLogin" class="type" style="display:none;">
+						<form id="loginForm" method="" action="">
+							<label class="inputText">
+								<span class="user-icon">
+									
+								</span>
+								<input type="text" name="number" value="" placeholder="邮箱/手机号" />
+							</label>
+							<label class="inputText">
+								<span class="password-icon">
+									
+								</span>
+								<input type="password" name="password" value="" placeholder="输入密码" />
+							</label>
+							<input type="submit" value="登录" id="submit" />
+						</form>
+						<div class="link">
+							<span class="found"><a href="###">忘记登录密码</a></span>
+							<span class="register"><a href="###">免费注册</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="loginFooter">
+			<div id="footText">
+				<p id="linkAddress">
+					<a href="###">关于支付宝</a>
+					<span>|</span>
+					<a href="###">诚征英才</a>
+					<span>|</span>
+					<a href="###">联系我们</a>
+					<span>|</span>
+					<a href="###">International Business</a>
+					<span>|</span>
+					<a href="###">About Alipay</a>
+				</p>
+				<p id="cpoyright">ICP证：沪B2-20150087</p>
+			</div>
+		</div>
+		<div class="loginBackground">
+			<img src="https://i.alipayobjects.com/e/201311/1V4nsyvMbt_src.jpg"/>
+		</div>
+	</div>
+	
+</body>
+</html>
